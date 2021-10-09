@@ -1,12 +1,7 @@
-def selection_Sort(n,data,start,end):
-  for i in range(n):
-    min_index=i
-    
-    for j in range(i+1,n):
-      if data[j] < data[min_index]:
-        min_index=j
-
-    data[i],data[min_index]=data[min_index],data[i]
+def quick_Sort(n,data,start,end):
+  if n <=1:
+    return
+  pivot=data[0] 
 
 
 if __name__ =="__main__":
@@ -17,5 +12,5 @@ if __name__ =="__main__":
     data=list(map(int,file.readline().split()))
 
   print("unsorted_data:",data,sep="\t",end="\n")
-  selection_Sort(n,data,0,n-1)
+  quick_Sort(n,data)
   print("sorted_data:",data,sep="\t",end="\n")

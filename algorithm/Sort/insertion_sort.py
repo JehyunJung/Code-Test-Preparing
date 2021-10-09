@@ -1,4 +1,4 @@
-def insertion_Sort(n,data):
+def insertion_Sort(n,data,start,end):
   for i in range(1,n):
     for j in range(i,0,-1):
       if data[j-1] > data[j]:
@@ -15,5 +15,5 @@ if __name__ =="__main__":
     data=list(map(int,file.readline().split()))
 
   print("unsorted_data:",data,sep="\t",end="\n")
-  insertion_Sort(n,data)
+  insertion_Sort(n,data,0,n-1)
   print("sorted_data:",data,sep="\t",end="\n")

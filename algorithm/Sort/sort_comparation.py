@@ -12,7 +12,7 @@ if __name__ == "__main__":
   functions=[selection_Sort,insertion_Sort]  
   for function in functions:
     start_time=time.time()
-    function(n,data)
+    function(n,data,0,n-1)
     end_time=time.time()
     print(function)
     print("sort time: "+ str((end_time-start_time)*1000)+" seconds")
