@@ -10,15 +10,16 @@ def binary_search(data,target_data,start,end):
     else:
       start=mid+1
 
-n=0
-data=[]
-with open("data.txt","r") as file:
-  n=int(file.readline())
-  data=list(map(int,file.readline().split()))
-data.sort()
+if __name__ == "__main__":
+  n=0
+  data=[]
+  with open("data.txt","r") as file:
+    n=int(file.readline())
+    data=list(map(int,file.readline().split()))
+  data.sort()
 
-index=binary_search(data,3,0,len(data)-1)
-if index:
-  print("Index: "+str(index))
-else:
-  print("Element does not exists")
+  index=binary_search(data,3,0,len(data)-1)
+  if index:
+    print("Index: "+str(index))
+  else:
+    print("Element does not exists")
