@@ -5,3 +5,4 @@
 __pycache__/
 *.py[cod]
 git_push.py
+git_pull.py
