@@ -1,6 +1,6 @@
 N=0
-times=[0]
-prizes=[0]
+times=[]
+prizes=[]
 
 with open("input33.txt","r") as file:
   N=int(file.readline())
@@ -12,19 +12,11 @@ with open("input33.txt","r") as file:
 dp=[0] *(N+1)
 
 for i in range(1,N+1):
-
-  check=False
-  for j in range(5):
-    target=i-j
-    if target == 0:
-      break
-    if target+times[target]==i+1:
-      dp[i]=max(dp[i],dp[i-times[target]]+prizes[target])
-      check=True
-  if not check:
+  if dp[i]==0:
     dp[i]=dp[i-1]
-     
-
-print(dp[N]) 
+  time=i+times[i-1]-1
+  if time<=N:
+    dp[time]=max(dp[time],dp[i-1]+prizes[i-1])
+print(dp[N])
 
 
