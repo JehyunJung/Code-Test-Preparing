@@ -24,6 +24,7 @@ def dijkstra(n,graph):
       if temp < distances[new_y][new_x]:
         distances[new_y][new_x]=temp
         heapq.heappush(queue,(temp,new_y,new_x))
+        
   return distances
 
 test_cases=0
