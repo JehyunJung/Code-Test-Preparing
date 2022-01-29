@@ -9,6 +9,6 @@ def solution(numbers):
 
 if __name__ == "__main__":
   numbers=[]
-  with open("level2.txt","r") as file:
+  with open("level2_1.txt","r") as file:
     numbers=list(map(int,file.readline().split()))
   print(solution(numbers))
