@@ -17,7 +17,7 @@ def dijkstra_path(graph,n,start_vertex,end_vertex):
         distance[adj_vertex]=temp
         path[adj_vertex]=vertex
         heapq.heappush(heap,(temp,adj_vertex))
-    
+  print(distance) 
   return distance[end_vertex],path
 
 def print_path(path,node):
@@ -43,7 +43,7 @@ if __name__ =="__main__":
     print("NO path")
   else:
     print("Shortest path: ", distance)
-    
+  
   print("path: ",end=" ")
   print_path(path,n)
   print()

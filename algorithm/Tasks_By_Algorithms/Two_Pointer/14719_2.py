@@ -1,13 +1,22 @@
+import re
 def solution(height,width,blocks):
+  max_height=max(blocks)
+  block_map=[["0"] *width for _ in range(max_height)]
+
+  index=0
+  for block in blocks:
+    for j in range(block):
+      block_map[max_height-j-1][index]="1"
+    index+=1
   value=0
-  for i in range(1,width-1):
-      left=max(blocks[:i])
-      right=max(blocks[i+1:])
-      
-      max_height=min(left,right)
-      
-      if max_height > blocks[i]:
-          value+=(max_height-blocks[i])
+
+  for block_segment in block_map:
+    print(block_segment)
+  
+  for block_segment in block_map:
+      block_segment_str="".join(block_segment)
+      for groups in re.findall("1[0]+1",block_segment_str):
+        value+=groups.count("0")
   return value
     
   
@@ -17,6 +26,6 @@ if __name__ == "__main__":
   blocks=[]
 
   with open("input14719.txt","r") as file:
-    width,height=map(int,file.readline().split())
+    height,width=map(int,file.readline().split())
     blocks=list(map(int,file.readline().split()))
   print(solution(height,width,blocks))
