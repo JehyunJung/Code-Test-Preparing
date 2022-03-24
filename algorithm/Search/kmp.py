@@ -1,7 +1,6 @@
 def make_table(S):
   length=len(S)
   table=[0] * length
-
   idx=0
 
   for i in range(1,length):
