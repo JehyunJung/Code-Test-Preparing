@@ -12,7 +12,7 @@ def solution(temp,data):
 if __name__ =="__main__":
     testcases=0
     datas=[]
-    with open("input15989.txt","r") as file:
+    with open("input15986.txt","r") as file:
       testcases=int(file.readline())
       for _ in range(testcases):
         datas.append(int(file.readline()))
