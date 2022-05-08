@@ -1,6 +1,9 @@
 5
-ICN SFO
-ICN ATL 
-SFO ATL 
-ATL ICN 
-ATL SFO
+ICN A
+A B 
+A C
+C A
+B D
+
+
+
