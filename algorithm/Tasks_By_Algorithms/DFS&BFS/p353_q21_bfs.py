@@ -1,7 +1,7 @@
 from math import pow
 from collections import deque
 def bfs(row,col):
-    unions[bfs_count].append((row,col))
+    union=[(row,col)]
     visited[row][col]=True
     q=deque()
     q.append((row,col))
@@ -21,14 +21,15 @@ def bfs(row,col):
                 continue
 
             if L<=abs(graph[new_row][new_col]-graph[row][col])<=R:
-                unions[bfs_count].append((new_row,new_col))
+                union.append((new_row,new_col))
                 q.append((new_row,new_col))
                 sumOfCitizens+=graph[new_row][new_col]
                 count+=1
                 visited[new_row][new_col]=True
                 
-    for row,col in unions[bfs_count]:
+    for row,col in union:
         graph[row][col]= sumOfCitizens//count
+    return union
 
 if __name__ == "__main__":
     n,L,R=0,0,0
@@ -46,16 +47,12 @@ if __name__ == "__main__":
         bfs_count=0
         unions=[]
         visited=[[False]*n for _ in range(n)]
-        for i in range(n):
-          print(graph[i])  
         for row in range(n):
             for col in range(n):
                 if visited[row][col]:
                     continue
-                unions.append([(row,col)])
                 visited[row][col]=True
-                bfs(row,col)
-                bfs_count+=1
+                unions.append(bfs(row,col))
 
         if len(unions) == int(pow(n,2)):
             break
