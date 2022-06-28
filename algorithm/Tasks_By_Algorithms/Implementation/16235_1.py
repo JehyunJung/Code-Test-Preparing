@@ -24,14 +24,13 @@ def solution():
                         else:
                             dead_map[i][j].append(tree//2)
                     graph[i][j]=temp
-                        
-        #여름
-        for i in range(N):
-            for j in range(N):
-                if dead_map[i][j] !=0:
-                    nutrition_level[i][j]+=sum(dead_map[i][j])
 
-        
+                #여름
+                if len(dead_map[i][j])>0:
+                    nutrition_level[i][j]+=sum(dead_map[i][j])
+                #겨울
+                nutrition_level[i][j]+=adding_nutrition_level[i][j]
+                                
         #가을
         new_growings=[]
         for i in range(N):
@@ -54,10 +53,7 @@ def solution():
                 graph[row][col]=[]
             graph[row][col].append(1)
 
-        #겨울
-        for i in range(N):
-            for j in range(N):
-                nutrition_level[i][j]+=adding_nutrition_level[i][j]
+        
 
     count=0
     for i in range(N):
