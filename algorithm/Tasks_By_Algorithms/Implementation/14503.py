@@ -17,7 +17,6 @@ def solution():
     visited[row][col]=True
 
     while True:
-        print(row,col,direction)
         checked=False
         for i in range(4):
             direction=get_nextdir(direction)
