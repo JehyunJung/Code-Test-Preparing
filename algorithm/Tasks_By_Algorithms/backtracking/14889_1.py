@@ -1,8 +1,14 @@
 from math import inf
-def solution(start,count):
+def solution(count):
     global result
     if count==num//2:
-        link=list(set(persons)-set(start))     
+        start=[]
+        link=[]
+        for i in range(num):
+            if team[i]==0:
+                start.append(i)
+            else:
+                link.append(i) 
         start_power=0
         link_power=0
         for i in range(num//2):
@@ -14,17 +20,20 @@ def solution(start,count):
         result=min(result,abs(start_power-link_power))
 
     for i in range(num):
-        if i not in start:
-            solution(start+[i],count+1)
+        if team[i]!=1:
+            team[i]=1
+            solution(count+1)
+            team[i]=0
 
 
 if __name__ == "__main__":
     num=0
     result=inf
     graph=[]
+    
     with open("input14889.txt","r") as file:
         num=int(file.readline())
         graph=[list(map(int,file.readline().split())) for _ in range(num)]
-    persons=[i for i in range(num)]
-    solution([],0)
+    team=[0 for i in range(num)]
+    solution(0)
     print(result)
