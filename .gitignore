@@ -7,3 +7,4 @@ __pycache__/
 git_push.py
 git_pull.py
 launch.json
+lotto.py
