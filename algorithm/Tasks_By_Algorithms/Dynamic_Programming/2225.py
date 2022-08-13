@@ -11,7 +11,7 @@ def solution():
             di[i][j]=di[i-1][j]+di[i][j-1]
     
     print(di[n][k]%1000000000) """
-    count=factorial(n+k-1)/(factorial(k-1)*factorial(n))
+    count=factorial(n+k-1)//(factorial(k-1)*factorial(n))
     print(count%1000000000)
 if __name__ == "__main__":
     n,k=0,0
