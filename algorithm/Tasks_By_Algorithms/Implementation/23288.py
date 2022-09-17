@@ -1,9 +1,7 @@
 from collections import deque
 def bfs(start_row,start_col,number):
     queue=deque([(start_row,start_col)])
-    visited=[[False] * M for _ in range(N)]
-
-    
+    visited=[[False] * M for _ in range(N)]    
     count=0
 
     while queue:
@@ -31,8 +29,8 @@ def move(rows,cols,dir):
         cols[1]=rows[1]
     #동
     elif dir==1:
-        cols.insert(0,rows[3])
-        rows[3]=cols.pop()
+        cols.insert(0,rows.pop())
+        rows.append(cols.pop())
         rows[1]=cols[1]
     #남
     elif dir==2:
@@ -40,8 +38,8 @@ def move(rows,cols,dir):
         cols[1]=rows[1]
     #서
     elif dir==3:
-        cols.append(rows[3])
-        rows[3]=cols.pop(0)
+        cols.append(rows.pop())
+        rows.append(cols.pop(0))
         rows[1]=cols[1]
     
 
