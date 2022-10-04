@@ -38,9 +38,7 @@ def solution():
             for k in range(i+1,N+1):
                 if graph[i][k]:
                     dp[k][j+1]=max(dp[k][j+1],dp[i][j]+graph[i][k])
-    for row in graph:
-        print(row)
-    print(dp)
+                    
     return max(dp[N])
 if __name__ == "__main__":
     N,M,K=0,0,0
