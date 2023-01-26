@@ -1,34 +1,42 @@
-num=0
-operations=[]
+def solution():
+    all_bit=2**20-1
 
-with open("input11723.txt","r") as file:
-  num=int(file.readline())
-  for _ in range(num):
-    operations.append(list(map(str,file.readline().split())))
+    set_bit=0
+
+    for operation in operations:
+        if operation[0]=="all":
+            set_bit=all_bit
+        elif operation[0]=="empty":
+            set_bit=0
+        else:
+            number_bit=1<<(int(operation[1])-1)
+            if operation[0] =="add":
+                if set_bit & number_bit == number_bit:
+                    continue
+                else:
+                    set_bit |= number_bit
+            elif operation[0] =="remove":
+                if set_bit & number_bit == number_bit:
+                    set_bit ^= number_bit
+                else:
+                    continue 
+            elif operation[0]=="check":
+                if set_bit & number_bit == number_bit:
+                    print(1)
+                else:
+                    print(0)
+            elif operation[0] == "toggle":
+                set_bit ^= number_bit
+
+
+if __name__ == "__main__":
+    with open("input11723.txt","r") as file:
+        n=int(file.readline())
+        operations=[list(map(str,file.readline().strip().split())) for _ in range(n)]
     
-test_set=set()
-for idx in range(num):
-    operation=operations[idx][0]
-    if operation =="all":
-        test_set=set([i for i in range(1,21)])
-    elif operation=="empty":
-        test_set=set()
-    else:
-        option=int(operations[idx][1])
-        if operation == "add":
-            test_set.add(option)
-        elif operation == "check":
-            if option in test_set:
-                print(1)
-            else:
-                print(0)
-        elif operation == "remove":
-            test_set.discard(option)
-        elif operation == "toggle":
-            if option in test_set:
-                test_set.remove(option)
-            else:
-                test_set.add(option)
+    solution()
+
+
         
                          
                          
