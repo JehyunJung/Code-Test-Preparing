@@ -45,7 +45,7 @@ if __name__ == "__main__":
     turns=["X","O"]
     make_boards(0)
     boards=set(boards)
-    print(boards)
+
     with open("input7682.txt","r") as file:
         while True:
             testcase=file.readline().strip()
