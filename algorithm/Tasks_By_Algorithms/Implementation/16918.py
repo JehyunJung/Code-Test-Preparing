@@ -28,7 +28,6 @@ def clear_bomb(queue):
             board[next_row][next_col]="."
 
 def solution():
-    transition={".":-1,"O":3}
     queue=find_bomb()
 
     for time in range(2,n+1):
