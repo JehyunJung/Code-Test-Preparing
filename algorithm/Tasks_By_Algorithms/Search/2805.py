@@ -1,5 +1,5 @@
 def solution():
-    start,end=0,20000000000
+    start,end=0,1000000000
     max_tree_height=0
     while start<end:
         mid=(start+end)//2
