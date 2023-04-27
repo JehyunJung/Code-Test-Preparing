@@ -8,7 +8,6 @@ def solution():
         if datas[i] != "P":
             continue
         for dx in range(-k,k+1):
-            print(dx)
             adj_index=i+dx
 
             if adj_index < 0 or adj_index >= n:
