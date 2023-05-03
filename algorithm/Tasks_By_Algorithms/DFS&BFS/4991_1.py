@@ -94,8 +94,13 @@ def solution():
 
     dp=[[-1] * (1<<length) for _ in range(length)]
 
-    print(dfs(length,0,1))
+    shortest_distance=dfs(length,0,1)
 
+    
+    if shortest_distance == inf:
+        print(-1)
+    else:
+        print(shortest_distance)
 if __name__ == "__main__":
     scriptpath = dirname(__file__)
     filename = join(scriptpath, 'input4991.txt')
