@@ -9,9 +9,6 @@ def dfs(previous_row,previous_col):
     dp[previous_row][previous_col] =0
     previous_value=board[previous_row][previous_col]
 
-    if (previous_row,previous_col) ==(3,1):
-        print("")
-
     max_distance=1
     for dir in range(4):
         next_row=previous_row+dy[dir]
@@ -34,7 +31,7 @@ def solution():
     for row in range(n):
         for col in range(n):
             dfs(row,col)
-            
+
     max_value=0
     for row in range(n):
         for col in range(n):
