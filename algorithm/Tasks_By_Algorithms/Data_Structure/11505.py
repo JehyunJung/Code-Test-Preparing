@@ -1,12 +1,11 @@
-from os.path import dirname,join
 import sys
 
 def init(index,start,end):
-    mid=(start+end)//2
 
     if start == end:
         tree[index]=datas[start-1]
         return tree[index]
+    mid=(start+end)//2
 
     tree[index]=(init(index*2,start,mid) * init(index*2+1,mid+1,end))%(1000000007)
     return tree[index]
@@ -16,7 +15,7 @@ def query(index,start,end,left,right):
     if right < start or end < left:
         return 1
     
-    elif left <= start and end <=right:
+    if left <= start and end <=right:
         return tree[index]
 
     mid=(start+end)//2
@@ -44,9 +43,6 @@ def update(index,start,end,change_index,old_value,new_value):
 
     
 if __name__ == "__main__":
-    scriptpath = dirname(__file__)
-    filename = join(scriptpath, 'input11505.txt')
-    sys.stdin=open(filename,"r")
     n,m,k=map(int,input().split())
 
     datas=[int(input()) for _ in range(n)]
@@ -55,7 +51,6 @@ if __name__ == "__main__":
 
     tree=[0] * (4*n)
     init(1,1,n)
-    print(tree)
     for option, a, b in queries:
         #수 바꾸기
         if option == 1:
@@ -65,5 +60,3 @@ if __name__ == "__main__":
         #쿼리
         if option == 2:
             print(query(1,1,n,a,b)%(1000000007))
-            
-        print(tree)
